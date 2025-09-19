@@ -1,0 +1,440 @@
+/* ===========================
+   RESET GLOBAL
+=========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #fff8f9;
+  color: #333;
+  line-height: 1.6;
+  margin: 0;       /* remove faixa branca no topo */
+  padding-top: 0;  /* não empurra mais o conteúdo */
+}
+
+/* ===========================
+   BARRA DE PROMOÇÃO
+=========================== */
+.promo-bar {
+  background: #ff4d6d;
+  color: #fff;
+  text-align: center;
+  padding: 8px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* ===========================
+   HEADER E MENU
+=========================== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffb6c1;
+  padding: 15px 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  position: sticky;   /* cola no topo */
+  top: 0;
+  z-index: 999;
+}
+
+/* ===== LOGO + NOME ===== */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* espaço entre logo e nome */
+}
+
+.logo {
+  height: 45px;  /* ajuste do tamanho da logo */
+  width: auto;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: #333;
+}
+
+/* MENU */
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-list li a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.nav-list li a:hover {
+  color: #ff4081;
+}
+
+/* MENU HAMBÚRGUER MOBILE */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: #333;
+}
+
+@media (max-width: 768px) {
+  .nav-list {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: #ffb6c1;
+    flex-direction: column;
+    padding: 15px;
+    border-radius: 10px;
+  }
+
+  .nav-list.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+}
+
+/* ===========================
+   SEÇÕES
+=========================== */
+section {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #444;
+}
+
+p {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+/* ===========================
+   PRODUTOS / CARDS
+=========================== */
+.grid,
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.card,
+.product-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover,
+.product-card:hover {
+  transform: scale(1.05); /* saltadinha */
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.card img,
+.product-card img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.card h4,
+.product-card h3 {
+  margin: 10px 0;
+  color: #333;
+}
+
+.card p,
+.product-card p {
+  font-size: 14px;
+  color: #555;
+}
+
+.card strong,
+.product-card strong {
+  display: block;
+  margin: 10px 0;
+  font-size: 16px;
+  color: #e60000;
+}
+
+.stock {
+  font-size: 0.9rem;
+  margin: 8px 0;
+  font-weight: bold;
+  color: #ff4d6d;
+}
+
+.btn,
+.buy-btn {
+  display: inline-block;
+  padding: 10px 15px;
+  background: #ff4081;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.buy-btn {
+  background: #25d366;
+}
+
+.btn:hover {
+  background: #e73370;
+}
+
+.buy-btn:hover {
+  background: #1da851;
+}
+
+/* ===========================
+   FORMULÁRIOS (CANECAS / ADMIN)
+=========================== */
+form,
+.form-canecas {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+form label {
+  font-weight: bold;
+  color: #333;
+}
+
+form input,
+form textarea,
+form select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+form button {
+  background: #ff4d6d;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+form button:hover {
+  background: #e63950;
+}
+
+/* ===========================
+   CONTATO (WhatsApp / Instagram)
+=========================== */
+.contato {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.contato-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.btn-contato {
+  display: inline-block;
+  padding: 15px 25px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  max-width: 350px;
+  transition: 0.3s ease-in-out;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* WhatsApp */
+.btn-contato[href*="wa.me"] {
+  background-color: #25d366;
+}
+.btn-contato[href*="wa.me"]:hover {
+  background-color: #1ebe5d;
+}
+
+/* Instagram */
+.btn-contato[href*="instagram.com"] {
+  background: radial-gradient(circle at 30% 107%, 
+    #fdf497 0%, #fdf497 5%, 
+    #fd5949 45%, #d6249f 60%, 
+    #285AEB 90%);
+}
+.btn-contato[href*="instagram.com"]:hover {
+  opacity: 0.9;
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+footer {
+  background: #ffb6c1;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  border-top: 2px solid #ff99aa;
+  color: #333;
+}
+
+/* ===========================
+   CARROSSEL
+=========================== */
+.carousel {
+  position: relative;
+  max-width: 900px;
+  margin: 30px auto;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.carousel-container {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+  min-width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.carousel-item img {
+  max-width: 300px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.carousel-item h4 {
+  margin: 10px 0;
+  color: #333;
+}
+
+/* Botões de navegação do carrossel */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  z-index: 10;
+}
+
+.carousel-btn.left {
+  left: 10px;
+}
+
+.carousel-btn.right {
+  right: 10px;
+}
+
+/* Responsividade do carrossel */
+@media (max-width: 768px) {
+  .carousel-item img {
+    max-width: 200px;
+  }
+}
+
+/* ===========================
+   BOTÃO FIXO WHATSAPP
+=========================== */
+.whatsapp-float {
+  position: fixed;
+  width: 55px;
+  height: 55px;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 28px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  background-color: #1ebe5d;
+}
+
+/* ===========================
+   FADE-IN ANIMATION
+=========================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
